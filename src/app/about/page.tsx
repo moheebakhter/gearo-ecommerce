@@ -82,7 +82,7 @@ export default function AboutPage() {
           <div className="about-story-image">
 
             <img
-              src="/images/Our%20Story.png"
+              src="/Images/Our Story.png"
               alt="GEARO modern living and workspace"
             />
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
           <div className="about-values-image">
 
             <img
-              src="/images/What%20we%20believe.png"
+              src="/Images/What we believe.png"
               alt="GEARO furniture design"
             />
 

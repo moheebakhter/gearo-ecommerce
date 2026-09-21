@@ -6,7 +6,7 @@ const saleProducts = [
     name: "Modern Comfort Chair",
     price: "$199",
     oldPrice: "$249",
-    image: "/images/Chairs-1.png",
+    image: "/Images/Chairs-1.png",
     category: "Chairs",
   },
   {
@@ -14,7 +14,7 @@ const saleProducts = [
     name: "Classic Lounge Chair",
     price: "$279",
     oldPrice: "$329",
-    image: "/images/Chairs.jpg",
+    image: "/Images/Chairs.jpg",
     category: "Chairs",
   },
   {
@@ -22,7 +22,7 @@ const saleProducts = [
     name: "Minimal Oak Desk",
     price: "$349",
     oldPrice: "$399",
-    image: "/images/Desk.png",
+    image: "/Images/Desk.png",
     category: "Desks",
   },
   {
@@ -30,7 +30,7 @@ const saleProducts = [
     name: "Wooden Side Cabinet",
     price: "$229",
     oldPrice: "$279",
-    image: "/images/Tables.png",
+    image: "/Images/Tables.png",
     category: "Storage",
   },
 ];
