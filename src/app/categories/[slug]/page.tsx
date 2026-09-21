@@ -10,13 +10,13 @@ const categories = [
         id: "1",
         name: "Modern Comfort Chair",
         price: "$249",
-        image: "/images/products/chair-1.jpg",
+        image: "/Images/Chairs-1.png",
       },
       {
         id: "3",
         name: "Classic Lounge Chair",
         price: "$329",
-        image: "/images/products/chair-2.jpg",
+        image: "/Images/Chairs.jpg",
       },
     ],
   },
@@ -29,7 +29,7 @@ const categories = [
         id: "2",
         name: "Minimal Oak Desk",
         price: "$399",
-        image: "/images/products/desk-1.jpg",
+        image: "/Images/Desk.jpg",
       },
     ],
   },
@@ -37,7 +37,32 @@ const categories = [
     slug: "tables",
     name: "Tables",
     description: "Functional tables with timeless modern design.",
-    products: [],
+    products: [
+         {
+        id: "1",
+        name: "Minimal Oak Desk",
+        price: "$399",
+        image: "/Images/Dining-table .png",
+      }, 
+     {
+        id: "2",
+        name: "Coffee Table",
+        price: "$399",
+        image: "/Images/Coffe Table.png",
+      },
+      {
+        id: "3",
+        name: "Side Table",
+        price: "$399",
+        image: "/Images/Side Table.png",
+      },
+      {
+        id: "4",
+        name: "Console Table",
+        price: "$399",
+        image: "/Images/Console Table.png",
+      },
+    ],
   },
   {
     slug: "storage",
@@ -48,11 +73,13 @@ const categories = [
         id: "4",
         name: "Wooden Side Cabinet",
         price: "$279",
-        image: "/images/products/cabinet-1.jpg",
+        image: "/Images/product-7.jpg",
       },
     ],
   },
   {
+
+
     slug: "office-equipment",
     name: "Office Equipment",
     description: "Essential equipment for modern offices.",

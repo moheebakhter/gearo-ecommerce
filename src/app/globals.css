@@ -964,7 +964,7 @@ button {
   align-items: center;
   overflow: hidden;
 
-  background-image: url("/Images/categories-hero.png");
+  background-image: url("/Images/Categories-Hero.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2747,7 +2747,7 @@ button {
 
   overflow: hidden;
 
-  background-image: url("/Images/about-hero.png");
+  background-image: url("/Images/About-Hero.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
