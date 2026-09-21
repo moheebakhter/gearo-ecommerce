@@ -2,12 +2,18 @@ export default function AboutPage() {
   return (
     <main className="about-page">
 
-      {/* HERO */}
+      {/* =========================
+          HERO
+      ========================= */}
 
       <section className="about-hero">
-        <div className="about-container">
+        <div className="about-hero-overlay"></div>
 
-          <p className="about-label">ABOUT US</p>
+        <div className="about-container about-hero-content">
+
+          <p className="about-label">
+            ABOUT US
+          </p>
 
           <h1>
             Furniture designed
@@ -23,22 +29,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* STORY */}
+
+      {/* =========================
+          OUR STORY
+      ========================= */}
 
       <section className="about-story">
+
         <div className="about-container">
 
           <div className="about-story-grid">
 
-            <div>
-              <p className="about-label">OUR STORY</p>
+            {/* LEFT */}
+
+            <div className="about-story-heading">
+
+              <p className="about-label">
+                OUR STORY
+              </p>
 
               <h2>
                 Simple design.
                 <br />
                 Better living.
               </h2>
+
             </div>
+
+
+            {/* RIGHT */}
 
             <div className="about-story-content">
 
@@ -57,66 +76,126 @@ export default function AboutPage() {
 
           </div>
 
-        </div>
-      </section>
 
-      {/* VALUES */}
+          {/* STORY IMAGE */}
 
-      <section className="about-values">
-        <div className="about-container">
+          <div className="about-story-image">
 
-          <div className="about-values-heading">
-
-            <p className="about-label">WHAT WE BELIEVE</p>
-
-            <h2>
-              Designed with
-              <br />
-              purpose.
-            </h2>
+            <img
+              src="/images/Our%20Story.png"
+              alt="GEARO modern living and workspace"
+            />
 
           </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================
+          WHAT WE BELIEVE
+      ========================= */}
+
+      <section className="about-values">
+
+        <div className="about-container">
+
+          {/* IMAGE */}
+
+          <div className="about-values-image">
+
+            <img
+              src="/images/What%20we%20believe.png"
+              alt="GEARO furniture design"
+            />
+
+            <div className="about-values-image-content">
+
+              <p className="about-label">
+                WHAT WE BELIEVE
+              </p>
+
+              <h2>
+                Designed with
+                <br />
+                purpose.
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          {/* VALUES */}
 
           <div className="about-values-grid">
 
             <div className="about-value">
+
               <span>01</span>
-              <h3>Quality</h3>
+
+              <h3>
+                Quality
+              </h3>
+
               <p>
                 Products selected for dependable quality and
                 everyday use.
               </p>
+
             </div>
 
+
             <div className="about-value">
+
               <span>02</span>
-              <h3>Function</h3>
+
+              <h3>
+                Function
+              </h3>
+
               <p>
                 Practical designs that make modern spaces
                 easier to live and work in.
               </p>
+
             </div>
 
+
             <div className="about-value">
+
               <span>03</span>
-              <h3>Simplicity</h3>
+
+              <h3>
+                Simplicity
+              </h3>
+
               <p>
                 Clean forms and timeless styles that fit naturally
                 into contemporary interiors.
               </p>
+
             </div>
 
           </div>
 
         </div>
+
       </section>
 
-      {/* CTA */}
+
+      {/* =========================
+          CTA
+      ========================= */}
 
       <section className="about-cta">
+
         <div className="about-container">
 
-          <p className="about-label">EXPLORE GEARO</p>
+          <p className="about-label">
+            EXPLORE GEARO
+          </p>
 
           <h2>
             Find something
@@ -124,11 +203,15 @@ export default function AboutPage() {
             for your space.
           </h2>
 
-          <a href="/shop" className="about-cta-button">
+          <a
+            href="/shop"
+            className="about-cta-button"
+          >
             Shop Products →
           </a>
 
         </div>
+
       </section>
 
     </main>
