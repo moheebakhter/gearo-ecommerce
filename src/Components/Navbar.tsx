@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
 
@@ -11,20 +12,38 @@ export default function Navbar() {
 
         {/* LOGO */}
         <a href="/" className="logo">
-          GEARO
+          <img
+            src="/Images/Logo.png"
+            alt="GEARO"
+          />
         </a>
 
         {/* DESKTOP NAVIGATION */}
         <nav className="main-nav">
-          <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="/shop" onClick={() => setMenuOpen(false)}>Shop</a>
-          <a href="/categories" onClick={() => setMenuOpen(false)}>Categories</a>
-          <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href="/" onClick={() => setMenuOpen(false)}>
+            Home
+          </a>
+
+          <a href="/shop" onClick={() => setMenuOpen(false)}>
+            Shop
+          </a>
+
+          <a href="/categories" onClick={() => setMenuOpen(false)}>
+            Categories
+          </a>
+
+          <a href="/about" onClick={() => setMenuOpen(false)}>
+            About
+          </a>
+
+          <a href="/contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
         </nav>
 
         {/* HEADER ACTIONS */}
         <div className="header-actions">
+
           <Link href="/search" aria-label="Search">
             ⌕
           </Link>
@@ -38,8 +57,6 @@ export default function Navbar() {
           </Link>
 
           {/* HAMBURGER */}
-
-          {/* HAMBURGER */}
           <button
             type="button"
             className={`hamburger ${menuOpen ? "active" : ""}`}
@@ -51,12 +68,14 @@ export default function Navbar() {
             <span></span>
             <span></span>
           </button>
+
         </div>
 
       </div>
 
       {/* MOBILE / TABLET MENU */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+
         <a href="/" onClick={() => setMenuOpen(false)}>
           Home
         </a>
@@ -76,6 +95,7 @@ export default function Navbar() {
         <a href="/contact" onClick={() => setMenuOpen(false)}>
           Contact
         </a>
+
       </div>
     </header>
   );

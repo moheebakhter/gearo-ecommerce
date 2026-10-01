@@ -5,6 +5,7 @@ const categories = [
     slug: "chairs",
     name: "Chairs",
     description: "Comfortable seating for work and living spaces.",
+    banner: "/Images/Chairs-1.png",
     products: [
       {
         id: "1",
@@ -20,10 +21,12 @@ const categories = [
       },
     ],
   },
+
   {
     slug: "desks",
     name: "Desks",
     description: "Modern desks designed for productive workspaces.",
+    banner: "/Images/Desk.png",
     products: [
       {
         id: "2",
@@ -33,18 +36,20 @@ const categories = [
       },
     ],
   },
+
   {
     slug: "tables",
     name: "Tables",
     description: "Functional tables with timeless modern design.",
+    banner: "/Images/Tables.png",
     products: [
-         {
+      {
         id: "1",
         name: "Minimal Oak Desk",
         price: "$399",
         image: "/Images/Dining-table .png",
-      }, 
-     {
+      },
+      {
         id: "2",
         name: "Coffee Table",
         price: "$399",
@@ -64,10 +69,12 @@ const categories = [
       },
     ],
   },
+
   {
     slug: "storage",
     name: "Storage",
     description: "Smart storage solutions for organized spaces.",
+    banner: "/Images/Storage.png",
     products: [
       {
         id: "4",
@@ -77,18 +84,20 @@ const categories = [
       },
     ],
   },
+
   {
-
-
     slug: "office-equipment",
     name: "Office Equipment",
     description: "Essential equipment for modern offices.",
+    banner: "/Images/Equipment.png",
     products: [],
   },
+
   {
     slug: "lighting",
     name: "Lighting",
     description: "Lighting that completes your workspace.",
+    banner: "/Images/Lighting.png",
     products: [],
   },
 ];
@@ -116,7 +125,9 @@ export default async function CategoryPage({
             CATEGORY NOT FOUND
           </p>
 
-          <h1>Sorry, this category doesn't exist.</h1>
+          <h1>
+            Sorry, this category doesn't exist.
+          </h1>
 
           <Link href="/categories">
             ← Back to Categories
@@ -131,7 +142,24 @@ export default async function CategoryPage({
 
       {/* HERO */}
 
-      <section className="category-detail-hero">
+      <section
+        className="category-detail-hero"
+        style={{
+          backgroundImage: `
+            linear-gradient(
+              90deg,
+              rgba(238, 236, 231, 0.94) 0%,
+              rgba(238, 236, 231, 0.78) 35%,
+              rgba(238, 236, 231, 0.35) 65%,
+              rgba(238, 236, 231, 0.08) 100%
+            ),
+            url("${category.banner}")
+          `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div className="category-detail-container">
 
           <Link
@@ -145,7 +173,9 @@ export default async function CategoryPage({
             SHOP BY CATEGORY
           </p>
 
-          <h1>{category.name}</h1>
+          <h1>
+            {category.name}
+          </h1>
 
           <p>
             {category.description}
@@ -160,7 +190,9 @@ export default async function CategoryPage({
         <div className="category-detail-container">
 
           <div className="category-products-heading">
+
             <div>
+
               <p className="categories-small-title">
                 {category.products.length} PRODUCTS
               </p>
@@ -168,12 +200,15 @@ export default async function CategoryPage({
               <h2>
                 {category.name} collection.
               </h2>
+
             </div>
 
             <p>
-              Explore our selection of {category.name.toLowerCase()}
-              designed for modern spaces.
+              Explore our selection of{" "}
+              {category.name.toLowerCase()} designed for
+              modern spaces.
             </p>
+
           </div>
 
           {category.products.length > 0 ? (
@@ -181,6 +216,7 @@ export default async function CategoryPage({
             <div className="category-products-grid">
 
               {category.products.map((product) => (
+
                 <Link
                   href={`/product/${product.id}`}
                   className="category-product-card"
@@ -188,18 +224,26 @@ export default async function CategoryPage({
                 >
 
                   <div className="category-product-image">
+
                     <img
                       src={product.image}
                       alt={product.name}
                     />
+
                   </div>
 
                   <div className="category-product-info">
 
                     <div>
-                      <p>{category.name}</p>
 
-                      <h3>{product.name}</h3>
+                      <p>
+                        {category.name}
+                      </p>
+
+                      <h3>
+                        {product.name}
+                      </h3>
+
                     </div>
 
                     <span>
@@ -209,6 +253,7 @@ export default async function CategoryPage({
                   </div>
 
                 </Link>
+
               ))}
 
             </div>

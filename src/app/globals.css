@@ -73,6 +73,13 @@ button {
   letter-spacing: -1.5px;
 }
 
+.logo img {
+    width: 230px;
+  height: 105px;
+  display: block;
+  object-fit: contain;
+}
+
 .main-nav {
   display: flex;
   align-items: center;
