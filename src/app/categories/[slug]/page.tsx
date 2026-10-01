@@ -90,7 +90,33 @@ const categories = [
     name: "Office Equipment",
     description: "Essential equipment for modern offices.",
     banner: "/Images/Equipment.png",
-    products: [],
+    products: [
+
+        {
+        id: "",
+        name: "Wooden Side Cabinet",
+        price: "$279",
+        image: "/Images/Office equipement1.jpg",
+      },
+         {
+        id: "",
+        name: "Wooden Side Cabinet",
+        price: "$279",
+        image: "/Images/Office Equipement 2.jpg",
+      },
+         {
+        id: "",
+        name: "Wooden Side Cabinet",
+        price: "$279",
+        image: "/Images/Office Equipement 3.jpg",
+      },
+         {
+        id: "",
+        name: "Wooden Side Cabinet",
+        price: "$279",
+        image: "/Images/Office Equipement 4.jpg",
+      },
+    ],
   },
 
   {
