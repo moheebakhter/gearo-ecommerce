@@ -1,23 +1,6 @@
-import { enhanceMiddlewareWithBildit } from "@bildit-platform/nextjs";
-import { NextRequest, NextResponse } from "next/server";
+import { createBilditMiddleware } from "@bildit-platform/nextjs";
 
-async function customMiddleware(request: NextRequest) {
-  const requestHeaders = new Headers(request.headers);
-
-  requestHeaders.set(
-    "x-pathname",
-    request.nextUrl.pathname
-  );
-
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
-}
-
-export const middleware =
-  enhanceMiddlewareWithBildit(customMiddleware);
+export const middleware = createBilditMiddleware();
 
 export const config = {
   matcher: [
