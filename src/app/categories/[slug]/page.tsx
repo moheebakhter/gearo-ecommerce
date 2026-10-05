@@ -85,39 +85,38 @@ const categories = [
     ],
   },
 
-  {
-    slug: "office-equipment",
-    name: "Office Equipment",
-    description: "Essential equipment for modern offices.",
-    banner: "/Images/Equipment.png",
-    products: [
-
-        {
-        id: "",
-        name: "Wooden Side Cabinet",
-        price: "$279",
-        image: "/Images/Office equipement1.jpg",
-      },
-         {
-        id: "",
-        name: "Wooden Side Cabinet",
-        price: "$279",
-        image: "/Images/Office Equipement 2.jpg",
-      },
-         {
-        id: "",
-        name: "Wooden Side Cabinet",
-        price: "$279",
-        image: "/Images/Office Equipement 3.jpg",
-      },
-         {
-        id: "",
-        name: "Wooden Side Cabinet",
-        price: "$279",
-        image: "/Images/Office Equipement 4.jpg",
-      },
-    ],
-  },
+ {
+  slug: "office-equipment",
+  name: "Office Equipment",
+  description: "Essential equipment for modern offices.",
+  banner: "/Images/Equipment.png",
+  products: [
+    {
+      id: "9",
+      name: "Executive Monitor Workstation",
+      price: "$279",
+      image: "/Images/Office equipement1.jpg",
+    },
+    {
+      id: "10",
+      name: "Modern Office Printer Station",
+      price: "$279",
+      image: "/Images/Office Equipement 2.jpg",
+    },
+    {
+      id: "11",
+      name: "Professional Multifunction Printer",
+      price: "$279",
+      image: "/Images/Office Equipement 3.jpg",
+    },
+    {
+      id: "12",
+      name: "Compact Laser Printer",
+      price: "$279",
+      image: "/Images/Office Equipement 4.jpg",
+    },
+  ],
+},
 
   {
     slug: "lighting",

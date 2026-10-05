@@ -20,6 +20,7 @@ const products = [
         ],
         sale: true,
     },
+
     {
         id: "2",
         name: "Minimal Oak Desk",
@@ -36,6 +37,7 @@ const products = [
         ],
         sale: false,
     },
+
     {
         id: "3",
         name: "Classic Lounge Chair",
@@ -52,6 +54,7 @@ const products = [
         ],
         sale: false,
     },
+
     {
         id: "4",
         name: "Wooden Side Cabinet",
@@ -67,6 +70,150 @@ const products = [
             "/Images/Laptop_stand.jpg",
         ],
         sale: false,
+    },
+
+    /* =====================================================
+       OFFICE EQUIPMENT
+    ===================================================== */
+
+    {
+        id: "9",
+        name: "Modern Office Cabinet",
+        category: "Office Equipment",
+        price: "$289",
+        oldPrice: "$329",
+        description:
+            "A practical office cabinet designed to keep documents, supplies and everyday essentials neatly organized while maintaining a clean professional workspace.",
+        image: "/Images/Office equipement1.jpg",
+        gallery: [
+            "/Images/Office equipement1.jpg",
+            "/Images/Office Equipement 2.jpg",
+            "/Images/Office Equipement 3.jpg",
+        ],
+        sale: true,
+    },
+
+    {
+        id: "10",
+        name: "Professional Storage Unit",
+        category: "Office Equipment",
+        price: "$349",
+        oldPrice: "",
+        description:
+            "A spacious storage unit created for modern offices, offering an organized solution for files, equipment and workspace essentials.",
+        image: "/Images/Office Equipement 2.jpg",
+        gallery: [
+            "/Images/Office Equipement 2.jpg",
+            "/Images/Office equipement1.jpg",
+            "/Images/Office Equipement 4.jpg",
+        ],
+        sale: false,
+    },
+
+    {
+        id: "11",
+        name: "Executive Office Organizer",
+        category: "Office Equipment",
+        price: "$219",
+        oldPrice: "",
+        description:
+            "A compact office organizer with a refined design that helps keep your workspace tidy, functional and visually clean throughout the day.",
+        image: "/Images/Office Equipement 3.jpg",
+        gallery: [
+            "/Images/Office Equipement 3.jpg",
+            "/Images/Office Equipement 4.jpg",
+            "/Images/Office Equipement 2.jpg",
+        ],
+        sale: false,
+    },
+
+    {
+        id: "12",
+        name: "Contemporary Office Station",
+        category: "Office Equipment",
+        price: "$429",
+        oldPrice: "$479",
+        description:
+            "A contemporary office solution designed to combine practical storage with a polished appearance, making it suitable for modern professional environments.",
+        image: "/Images/Office Equipement 4.jpg",
+        gallery: [
+            "/Images/Office Equipement 4.jpg",
+            "/Images/Office Equipement 3.jpg",
+            "/Images/Office equipement1.jpg",
+        ],
+        sale: true,
+    },
+
+    /* =====================================================
+       LIGHTING
+    ===================================================== */
+
+    {
+        id: "13",
+        name: "Modern Desk Lamp",
+        category: "Lighting",
+        price: "$129",
+        oldPrice: "",
+        description:
+            "A sleek modern desk lamp designed to provide focused illumination while adding a refined contemporary touch to your workspace.",
+        image: "/Images/Lighting1.jpg",
+        gallery: [
+            "/Images/Lighting1.jpg",
+            "/Images/Lighting2.jpg",
+            "/Images/Lighting3.jpg",
+        ],
+        sale: false,
+    },
+
+    {
+        id: "14",
+        name: "Minimal Floor Lamp",
+        category: "Lighting",
+        price: "$189",
+        oldPrice: "$219",
+        description:
+            "A minimalist floor lamp with a clean silhouette that creates comfortable ambient lighting for offices, reading areas and modern interiors.",
+        image: "/Images/Lighting2.jpg",
+        gallery: [
+            "/Images/Lighting2.jpg",
+            "/Images/Lighting1.jpg",
+            "/Images/Lighting4.jpg",
+        ],
+        sale: true,
+    },
+
+    {
+        id: "15",
+        name: "Contemporary Table Light",
+        category: "Lighting",
+        price: "$149",
+        oldPrice: "",
+        description:
+            "A contemporary table light designed to bring soft, balanced illumination to desks, side tables and compact workspace environments.",
+        image: "/Images/Lighting3.jpg",
+        gallery: [
+            "/Images/Lighting3.jpg",
+            "/Images/Lighting4.jpg",
+            "/Images/Lighting1.jpg",
+        ],
+        sale: false,
+    },
+
+    {
+        id: "16",
+        name: "Architectural Pendant Light",
+        category: "Lighting",
+        price: "$249",
+        oldPrice: "$289",
+        description:
+            "An architectural pendant light featuring a refined modern form that adds character and practical illumination to contemporary spaces.",
+        image: "/Images/Lighting4.jpg",
+        gallery: [
+            "/Images/Lighting4.jpg",
+            "/Images/Lighting3.jpg",
+            "/Images/Lighting2.jpg",
+        ],
+        sale: true,
     },
 ];
 
@@ -139,7 +286,7 @@ export default async function ProductPage({
 
                         {/* PRODUCT OPTIONS */}
 
-                        <ProductOptions />
+                       <ProductOptions productId={product.id} />
 
 
                         {/* RATING */}

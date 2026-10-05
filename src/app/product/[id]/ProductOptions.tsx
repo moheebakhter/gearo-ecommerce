@@ -1,26 +1,32 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
-export default function ProductOptions() {
-    const router = useRouter();
+type ProductOptionsProps = {
+    productId: string;
+};
+
+export default function ProductOptions({
+    productId,
+}: ProductOptionsProps) {
 
     const [selectedColor, setSelectedColor] = useState(0);
-    const [selectedSize, setSelectedSize] = useState("Size C - Large");
+
+    const [selectedSize, setSelectedSize] =
+        useState("Size A - Small");
 
     const colors = [
         {
             name: "Peach",
-            imageIndex: 0,
+            color: "#e8d1c2",
         },
         {
             name: "Beige",
-            imageIndex: 1,
+            color: "#b5ae9d",
         },
         {
             name: "Gray",
-            imageIndex: 2,
+            color: "#9d9b98",
         },
     ];
 
@@ -29,14 +35,6 @@ export default function ProductOptions() {
         "Size B - Medium",
         "Size C - Large",
     ];
-
-    const handleColorChange = (index: number) => {
-        setSelectedColor(index);
-
-        router.replace(`?color=${index}`, {
-            scroll: false,
-        });
-    };
 
     return (
         <div className="product-options">
@@ -52,6 +50,7 @@ export default function ProductOptions() {
                 <div className="product-color-options">
 
                     {colors.map((color, index) => (
+
                         <button
                             key={color.name}
                             type="button"
@@ -61,17 +60,15 @@ export default function ProductOptions() {
                                     : ""
                             }`}
                             style={{
-                                backgroundColor:
-                                    index === 0
-                                        ? "#e8d1c2"
-                                        : index === 1
-                                        ? "#b5ae9d"
-                                        : "#9d9b98",
+                                backgroundColor: color.color,
                             }}
-                            onClick={() => handleColorChange(index)}
+                            onClick={() =>
+                                setSelectedColor(index)
+                            }
                             aria-label={color.name}
                             title={color.name}
                         />
+
                     ))}
 
                 </div>
@@ -86,10 +83,13 @@ export default function ProductOptions() {
                 <div className="product-size-heading">
 
                     <p>
-                        Size: <strong>{selectedSize}</strong>
+                        Size:{" "}
+                        <strong>
+                            {selectedSize}
+                        </strong>
                     </p>
 
-                    <a href="#size-guide">
+                    <a href={`/size-guide/${productId}`}>
                         Find Your Size
                     </a>
 
@@ -99,6 +99,7 @@ export default function ProductOptions() {
                 <div className="product-size-options">
 
                     {sizes.map((size) => (
+
                         <button
                             key={size}
                             type="button"
@@ -107,10 +108,13 @@ export default function ProductOptions() {
                                     ? "active"
                                     : ""
                             }`}
-                            onClick={() => setSelectedSize(size)}
+                            onClick={() =>
+                                setSelectedSize(size)
+                            }
                         >
                             {size}
                         </button>
+
                     ))}
 
                 </div>

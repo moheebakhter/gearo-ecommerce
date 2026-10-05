@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@bildit-platform/nextjs": "^0.7.6",
+    "@bildit-platform/nextjs-api": "^0.5.2",
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8"

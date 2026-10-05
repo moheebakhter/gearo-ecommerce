@@ -155,22 +155,41 @@ export default function ContactPage() {
       <section className="contact-cta">
         <div className="contact-container">
 
-          <p className="contact-label">
-            NEED SOMETHING?
-          </p>
+          <div className="contact-cta-grid">
 
-          <h2>
-            Explore our
-            <br />
-            collection.
-          </h2>
+            {/* CTA CONTENT */}
 
-          <Link
-            href="/shop"
-            className="contact-cta-button"
-          >
-            Shop Products →
-          </Link>
+            <div className="contact-cta-content">
+
+              <p className="contact-label">
+                NEED SOMETHING?
+              </p>
+
+              <h2>
+                Explore our
+                <br />
+                collection.
+              </h2>
+
+              <Link
+                href="/shop"
+                className="contact-cta-button"
+              >
+                Shop Products →
+              </Link>
+
+            </div>
+
+            {/* CTA IMAGE */}
+
+            <div className="contact-cta-image">
+              <img
+                src="/Images/Contact CTA.jpg"
+                alt="GEARO furniture collection"
+              />
+            </div>
+
+          </div>
 
         </div>
       </section>
