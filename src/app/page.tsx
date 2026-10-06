@@ -61,45 +61,45 @@ export default function Home() {
       {/* =========================
           HERO
       ========================= */}
-      <section className="hero">
-        <div className="container hero-content">
-          <div className="hero-text">
-            <p className="eyebrow">MODERN FURNITURE COLLECTION</p>
+     <section className="hero">
+  <div className="container hero-content">
+    <div className="hero-text">
+      <p className="eyebrow">MODERN FURNITURE COLLECTION</p>
 
-            <h1>
-              Create a space
-              <br />
-              you love.
-            </h1>
+      <h1>
+        Create a space
+        <br />
+        you love.
+      </h1>
 
-            <p className="hero-description">
-              Discover carefully selected furniture and office equipment
-              designed to make your space comfortable, functional and
-              beautiful.
-            </p>
+      <p className="hero-description">
+        Discover carefully selected furniture and office equipment
+        designed to make your space comfortable, functional and
+        beautiful.
+      </p>
 
-            <div className="hero-buttons">
-              <a href="/shop" className="btn btn-dark">
-                Shop Collection
-              </a>
+      <div className="hero-buttons">
+        <a href="/shop" className="btn btn-dark">
+          Shop Collection
+        </a>
 
-              <a href="/categories" className="btn btn-light">
-                Explore Categories
-              </a>
-            </div>
-          </div>
+        <a href="/categories" className="btn btn-light">
+          Explore Categories
+        </a>
+      </div>
+    </div>
 
-          <div className="hero-image">
-            <img
-              src="/Images/Hero1.jpg"
-              alt="Modern furniture"
-            />
-          </div>
-        </div>
+    <div className="hero-image">
+      <img
+        src="/Images/Hero1.jpg"
+        alt="Modern furniture"
+      />
+    </div>
+  </div>
+</section>
 
-        {/* BILDIT Hero Slot */}
-        <SlotPlaceholder slotId="home-hero" />
-      </section>
+{/* BILDIT Hero Slot — below the main hero */}
+<SlotPlaceholder slotId="home-hero" />
 
       {/* =========================
           CATEGORIES
