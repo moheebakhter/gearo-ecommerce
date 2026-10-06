@@ -7,7 +7,7 @@ async function customMiddleware(request: NextRequest) {
   return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
-export const middleware = enhanceMiddlewareWithBildit(customMiddleware);
+export const proxy = enhanceMiddlewareWithBildit(customMiddleware);
 
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
