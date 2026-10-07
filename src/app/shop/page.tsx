@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { SlotPlaceholder } from "@bildit-platform/nextjs";
 
 
 const products = [
@@ -139,184 +140,185 @@ export default function ShopPage() {
   }, [selectedCategory, sortOption]);
 
   return (
-    <main className="shop-page">
+    <SlotPlaceholder
+      slotId="shop-content"
+      fallback={
+        <main className="shop-page">
 
-      {/* ========================================
-          SHOP HERO
-      ======================================== */}
+          {/* ========================================
+              SHOP HERO
+          ======================================== */}
 
-      <section
-        className="shop-hero"
-        style={{
-          backgroundImage: "url('/Images/Shop_banner.png')",
-        }}
-      >
-        <div className="shop-hero-inner">
-
-          <p className="shop-eyebrow">
-            OUR COLLECTION
-          </p>
-
-          <h1>
-            Shop furniture
-            <br />
-            for your space.
-          </h1>
-
-          <p className="shop-intro">
-            Discover carefully selected furniture and office equipment
-            designed for modern living and working spaces.
-          </p>
-
-        </div>
-      </section>
-
-
-      {/* ========================================
-          SHOP CONTENT
-      ======================================== */}
-
-      <section className="shop-content">
-
-        {/* ========================================
-            TOOLBAR
-        ======================================== */}
-
-        <div className="shop-toolbar">
-
-          {/* CATEGORIES */}
-
-          <div className="shop-categories">
-
-            {categories.map((category) => (
-              <button
-                key={category}
-                type="button"
-                className={
-                  selectedCategory === category
-                    ? "active"
-                    : ""
-                }
-                onClick={() =>
-                  setSelectedCategory(category)
-                }
-              >
-                {category}
-              </button>
-            ))}
-
-          </div>
-
-
-          {/* SORT */}
-
-          <select
-            className="sort-select"
-            value={sortOption}
-            onChange={(e) =>
-              setSortOption(e.target.value)
-            }
+          <section
+            className="shop-hero"
+            style={{
+              backgroundImage: "url('/Images/Shop_banner.png')",
+            }}
           >
-            <option value="featured">
-              Featured
-            </option>
+            <div className="shop-hero-inner">
 
-            <option value="price-low">
-              Price: Low to High
-            </option>
+              <p className="shop-eyebrow">
+                OUR COLLECTION
+              </p>
 
-            <option value="price-high">
-              Price: High to Low
-            </option>
-          </select>
+              <h1>
+                Shop furniture
+                <br />
+                for your space.
+              </h1>
 
-        </div>
+              <p className="shop-intro">
+                Discover carefully selected furniture and office equipment
+                designed for modern living and working spaces.
+              </p>
+
+            </div>
+          </section>
 
 
-        {/* ========================================
-            PRODUCTS
-        ======================================== */}
+          {/* ========================================
+              SHOP CONTENT
+          ======================================== */}
 
-        {filteredProducts.length > 0 ? (
+          <section className="shop-content">
 
-          <div className="shop-grid">
+            {/* TOOLBAR */}
 
-            {filteredProducts.map((product) => (
+            <div className="shop-toolbar">
 
-              <Link
-                href={`/product/${product.id}`}
-                className="shop-product"
-                key={product.id}
+              {/* CATEGORIES */}
+
+              <div className="shop-categories">
+
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    type="button"
+                    className={
+                      selectedCategory === category
+                        ? "active"
+                        : ""
+                    }
+                    onClick={() =>
+                      setSelectedCategory(category)
+                    }
+                  >
+                    {category}
+                  </button>
+                ))}
+
+              </div>
+
+
+              {/* SORT */}
+
+              <select
+                className="sort-select"
+                value={sortOption}
+                onChange={(e) =>
+                  setSortOption(e.target.value)
+                }
               >
+                <option value="featured">
+                  Featured
+                </option>
 
-                {/* PRODUCT IMAGE */}
+                <option value="price-low">
+                  Price: Low to High
+                </option>
 
-                <div className="shop-product-image">
+                <option value="price-high">
+                  Price: High to Low
+                </option>
+              </select>
 
-                  {product.sale && (
-                    <span className="sale-badge">
-                      SALE
-                    </span>
-                  )}
-
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                  />
-
-                </div>
+            </div>
 
 
-                {/* PRODUCT INFO */}
+            {/* PRODUCTS */}
 
-                <div className="shop-product-info">
+            {filteredProducts.length > 0 ? (
 
-                  <p className="product-category">
-                    {product.category}
-                  </p>
+              <div className="shop-grid">
 
-                  <h2>
-                    {product.name}
-                  </h2>
+                {filteredProducts.map((product) => (
 
-                  <div className="product-price">
+                  <Link
+                    href={`/product/${product.id}`}
+                    className="shop-product"
+                    key={product.id}
+                  >
 
-                    <span>
-                      ${product.price}
-                    </span>
+                    {/* PRODUCT IMAGE */}
 
-                    {product.oldPrice > 0 && (
-                      <del>
-                        ${product.oldPrice}
-                      </del>
-                    )}
+                    <div className="shop-product-image">
 
-                  </div>
+                      {product.sale && (
+                        <span className="sale-badge">
+                          SALE
+                        </span>
+                      )}
 
-                </div>
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                      />
 
-              </Link>
+                    </div>
 
-            ))}
 
-          </div>
+                    {/* PRODUCT INFO */}
 
-        ) : (
+                    <div className="shop-product-info">
 
-          /* NO PRODUCTS */
+                      <p className="product-category">
+                        {product.category}
+                      </p>
 
-          <div className="no-products">
-            <h3>No products found.</h3>
+                      <h2>
+                        {product.name}
+                      </h2>
 
-            <p>
-              There are no products available in this category.
-            </p>
-          </div>
+                      <div className="product-price">
 
-        )}
+                        <span>
+                          ${product.price}
+                        </span>
 
-      </section>
+                        {product.oldPrice > 0 && (
+                          <del>
+                            ${product.oldPrice}
+                          </del>
+                        )}
 
-    </main>
+                      </div>
+
+                    </div>
+
+                  </Link>
+
+                ))}
+
+              </div>
+
+            ) : (
+
+              /* NO PRODUCTS */
+
+              <div className="no-products">
+                <h3>No products found.</h3>
+
+                <p>
+                  There are no products available in this category.
+                </p>
+              </div>
+
+            )}
+
+          </section>
+
+        </main>
+      }
+    />
   );
 }
