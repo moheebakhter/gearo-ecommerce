@@ -85,45 +85,83 @@ const categories = [
     ],
   },
 
- {
-  slug: "office-equipment",
-  name: "Office Equipment",
-  description: "Essential equipment for modern offices.",
-  banner: "/Images/Equipment.png",
-  products: [
-    {
-      id: "9",
-      name: "Executive Monitor Workstation",
-      price: "$279",
-      image: "/Images/Office equipement1.jpg",
-    },
-    {
-      id: "10",
-      name: "Modern Office Printer Station",
-      price: "$279",
-      image: "/Images/Office Equipement 2.jpg",
-    },
-    {
-      id: "11",
-      name: "Professional Multifunction Printer",
-      price: "$279",
-      image: "/Images/Office Equipement 3.jpg",
-    },
-    {
-      id: "12",
-      name: "Compact Laser Printer",
-      price: "$279",
-      image: "/Images/Office Equipement 4.jpg",
-    },
-  ],
-},
+  {
+    slug: "office-equipment",
+    name: "Office Equipment",
+    description: "Essential equipment for modern offices.",
+    banner: "/Images/Equipment.png",
+    products: [
+      {
+        id: "9",
+        name: "Executive Monitor Workstation",
+        price: "$279",
+        image: "/Images/Office equipement1.jpg",
+      },
+      {
+        id: "10",
+        name: "Modern Office Printer Station",
+        price: "$279",
+        image: "/Images/Office Equipement 2.jpg",
+      },
+      {
+        id: "11",
+        name: "Professional Multifunction Printer",
+        price: "$279",
+        image: "/Images/Office Equipement 3.jpg",
+      },
+      {
+        id: "12",
+        name: "Compact Laser Printer",
+        price: "$279",
+        image: "/Images/Office Equipement 4.jpg",
+      },
+    ],
+  },
 
   {
     slug: "lighting",
     name: "Lighting",
     description: "Lighting that completes your workspace.",
     banner: "/Images/Lighting.png",
-    products: [],
+    products: [
+     {
+  id: "13",
+  name: "Modern Executive Office Table",
+  price: "$279",
+  image: "/Images/Office Table 1.jpg",
+},
+{
+  id: "14",
+  name: "Premium Minimalist Office Table",
+  price: "$279",
+  image: "/Images/Office Table 2.jpg",
+},
+{
+  id: "15",
+  name: "Contemporary Executive Desk",
+  price: "$279",
+  image: "/Images/Office Table 3.jpg",
+},
+{
+  id: "16",
+  name: "Modern Dining Table",
+  price: "$279",
+  image: "/Images/Dining Table 1.jpg",
+},
+{
+  id: "17",
+  name: "Minimalist Wooden Dining Table",
+  price: "$279",
+  image: "/Images/Dining Table 2.jpg",
+},
+{
+  id: "18",
+  name: "Office Lighting Collection",
+  price: "$279",
+  image: "/Images/Lighting.png",
+},
+
+    ],
   },
 ];
 

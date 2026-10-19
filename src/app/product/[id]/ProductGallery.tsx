@@ -18,9 +18,35 @@ export default function ProductGallery({
 
     const colorParam = searchParams.get("color");
 
+    /* =========================
+       ACTIVE IMAGE
+    ========================= */
+
+    const getColorIndex = () => {
+        if (colorParam === null) {
+            return 0;
+        }
+
+        const index = Number(colorParam);
+
+        if (
+            Number.isInteger(index) &&
+            index >= 0 &&
+            index < images.length
+        ) {
+            return index;
+        }
+
+        return 0;
+    };
+
     const [activeImage, setActiveImage] = useState(
-        colorParam !== null ? Number(colorParam) : 0
+        getColorIndex()
     );
+
+    /* =========================
+       ZOOM
+    ========================= */
 
     const [isZooming, setIsZooming] = useState(false);
 
@@ -29,24 +55,30 @@ export default function ProductGallery({
         y: 50,
     });
 
-    /* COLOR CHANGE */
+
+    /* =========================
+       COLOR CHANGE
+    ========================= */
 
     useEffect(() => {
-        if (colorParam !== null) {
-            const colorIndex = Number(colorParam);
+        const colorIndex = getColorIndex();
 
-            if (
-                Number.isInteger(colorIndex) &&
-                colorIndex >= 0 &&
-                colorIndex < images.length
-            ) {
-                setActiveImage(colorIndex);
-            }
-        }
+        setActiveImage(colorIndex);
     }, [colorParam, images.length]);
 
 
-    /* ZOOM */
+    /* =========================
+       THUMBNAIL CHANGE
+    ========================= */
+
+    const handleThumbnailClick = (index: number) => {
+        setActiveImage(index);
+    };
+
+
+    /* =========================
+       ZOOM POSITION
+    ========================= */
 
     const handleMouseMove = (
         event: React.MouseEvent<HTMLDivElement>
@@ -70,11 +102,14 @@ export default function ProductGallery({
     return (
         <div className="product-gallery">
 
-            {/* THUMBNAILS */}
+            {/* =========================
+                THUMBNAILS
+            ========================= */}
 
             <div className="product-thumbnails">
 
                 {images.map((image, index) => (
+
                     <button
                         key={index}
                         type="button"
@@ -84,30 +119,38 @@ export default function ProductGallery({
                                 : ""
                         }`}
                         onClick={() =>
-                            setActiveImage(index)
+                            handleThumbnailClick(index)
                         }
                         aria-label={`View image ${index + 1}`}
                     >
+
                         <img
                             src={image}
                             alt={`${productName} ${index + 1}`}
                         />
+
                     </button>
+
                 ))}
 
             </div>
 
 
-            {/* MAIN IMAGE + ZOOM */}
+            {/* =========================
+                MAIN IMAGE + ZOOM
+            ========================= */}
 
             <div
                 className="product-gallery-main"
+
                 onMouseEnter={() =>
                     setIsZooming(true)
                 }
+
                 onMouseLeave={() =>
                     setIsZooming(false)
                 }
+
                 onMouseMove={handleMouseMove}
             >
 
@@ -127,16 +170,23 @@ export default function ProductGallery({
                 </div>
 
 
-                {/* ZOOM PREVIEW */}
+                {/* =========================
+                    ZOOM PREVIEW
+                ========================= */}
 
                 {isZooming && (
+
                     <div
                         className="product-zoom-preview"
+
                         style={{
                             backgroundImage: `url("${images[activeImage]}")`,
-                            backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+
+                            backgroundPosition:
+                                `${zoomPosition.x}% ${zoomPosition.y}%`,
                         }}
                     />
+
                 )}
 
             </div>

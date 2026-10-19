@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source inline("w-full px-4 py-8 md:px-8 lg:px-12 grid grid-cols-1 gap-4 sm:grid-cols-3 relative flex min-h-[420px] flex-col overflow-hidden z-10 p-6 pb-0 text-2xl font-bold leading-tight tracking-tight mt-2 max-w-[180px] text-sm leading-relaxed absolute bottom-0 right-0 w-4/5 items-end justify-end h-auto object-contain object-bottom");
+
 :root {
   --background: #f7f6f2;
   --foreground: #171717;
@@ -10,10 +12,12 @@
   --light-gray: #eceae5;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 html {
@@ -3376,26 +3380,60 @@ button {
 ========================= */
 
 .about-cta {
-  padding: 130px 0 140px;
+  padding: 120px 0 140px;
 
   background: #fff;
 }
 
-.about-cta h2 {
-  margin: 0 0 40px;
+.about-cta-grid {
+  display: grid;
 
-  font-size: 52px;
-  line-height: 1.05;
+  grid-template-columns: 0.85fr 1.15fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  width: 100%;
+}
+
+.about-cta-content {
+  min-width: 0;
+
+  padding-right: 10px;
+}
+
+.about-cta-content .about-label {
+  margin-bottom: 24px;
+}
+
+.about-cta h2 {
+  margin: 0;
+
+  font-size: 58px;
+  line-height: 1.02;
 
   font-weight: 500;
 
-  letter-spacing: -3px;
+  letter-spacing: -3.5px;
+}
+
+.about-cta-text {
+  max-width: 440px;
+
+  margin: 30px 0 38px;
+
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.8;
 }
 
 .about-cta-button {
   display: inline-block;
 
-  padding-bottom: 7px;
+  padding-bottom: 8px;
 
   border-bottom: 1px solid #111;
 
@@ -3414,6 +3452,38 @@ button {
   opacity: 0.55;
 
   transform: translateX(3px);
+}
+
+
+/* =========================
+   CTA IMAGE
+========================= */
+
+.about-cta-image {
+  width: 100%;
+
+  height: 470px;
+
+  overflow: hidden;
+
+  background: #eeece7;
+}
+
+.about-cta-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  transition: transform 0.6s ease;
+}
+
+.about-cta-image:hover img {
+  transform: scale(1.03);
 }
 
 
@@ -3463,6 +3533,24 @@ button {
   .about-values-image-content h2 {
     font-size: 48px;
   }
+
+  /* CTA */
+
+  .about-cta-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 50px;
+  }
+
+  .about-cta h2 {
+    font-size: 50px;
+
+    letter-spacing: -3px;
+  }
+
+  .about-cta-image {
+    height: 400px;
+  }
 }
 
 
@@ -3500,11 +3588,13 @@ button {
 
   .about-hero h1 {
     font-size: 46px;
+
     letter-spacing: -2.5px;
   }
 
   .about-intro {
     margin-top: 25px;
+
     font-size: 14px;
   }
 
@@ -3523,6 +3613,7 @@ button {
 
   .about-story h2 {
     font-size: 40px;
+
     letter-spacing: -2px;
   }
 
@@ -3551,6 +3642,7 @@ button {
 
   .about-values-image-content {
     top: 40px;
+
     left: 30px;
 
     width: 280px;
@@ -3558,6 +3650,7 @@ button {
 
   .about-values-image-content h2 {
     font-size: 40px;
+
     letter-spacing: -2px;
   }
 
@@ -3578,9 +3671,30 @@ button {
     padding: 90px 0 100px;
   }
 
+  .about-cta-grid {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .about-cta-content {
+    padding-right: 0;
+  }
+
   .about-cta h2 {
     font-size: 40px;
+
     letter-spacing: -2px;
+  }
+
+  .about-cta-text {
+    max-width: 500px;
+
+    margin: 25px 0 32px;
+  }
+
+  .about-cta-image {
+    height: 400px;
   }
 
 }
@@ -3624,6 +3738,7 @@ button {
 
   .about-values-image-content {
     top: 30px;
+
     left: 25px;
 
     width: 250px;
@@ -3631,6 +3746,18 @@ button {
 
   .about-value h3 {
     font-size: 20px;
+  }
+
+  .about-cta {
+    padding: 75px 0 85px;
+  }
+
+  .about-cta-grid {
+    gap: 40px;
+  }
+
+  .about-cta-image {
+    height: 280px;
   }
 
 }

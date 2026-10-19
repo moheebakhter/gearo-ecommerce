@@ -7,6 +7,7 @@ export default function AboutPage() {
       ========================= */}
 
       <section className="about-hero">
+
         <div className="about-hero-overlay"></div>
 
         <div className="about-container about-hero-content">
@@ -27,6 +28,7 @@ export default function AboutPage() {
           </p>
 
         </div>
+
       </section>
 
 
@@ -193,22 +195,49 @@ export default function AboutPage() {
 
         <div className="about-container">
 
-          <p className="about-label">
-            EXPLORE GEARO
-          </p>
+          <div className="about-cta-grid">
 
-          <h2>
-            Find something
-            <br />
-            for your space.
-          </h2>
+            {/* LEFT CONTENT */}
 
-          <a
-            href="/shop"
-            className="about-cta-button"
-          >
-            Shop Products →
-          </a>
+            <div className="about-cta-content">
+
+              <p className="about-label">
+                EXPLORE GEARO
+              </p>
+
+              <h2>
+                Find something
+                <br />
+                for your space.
+              </h2>
+
+              <p className="about-cta-text">
+                Discover furniture and equipment designed to make
+                modern spaces more comfortable, functional and refined.
+              </p>
+
+              <a
+                href="/shop"
+                className="about-cta-button"
+              >
+                Shop Products →
+              </a>
+
+            </div>
+
+
+            {/* RIGHT IMAGE */}
+
+            <div className="about-cta-image">
+
+              <img
+                src="/Images/About-cta.jpg"
+                alt="GEARO modern furniture"
+              />
+
+            </div>
+
+          </div>
 
         </div>
 

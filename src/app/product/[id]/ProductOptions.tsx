@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 type ProductOptionsProps = {
@@ -10,7 +12,20 @@ export default function ProductOptions({
     productId,
 }: ProductOptionsProps) {
 
-    const [selectedColor, setSelectedColor] = useState(0);
+    const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const initialColor = Number(
+        searchParams.get("color") ?? "0"
+    );
+
+    const [selectedColor, setSelectedColor] = useState(
+        Number.isInteger(initialColor) &&
+        initialColor >= 0 &&
+        initialColor <= 2
+            ? initialColor
+            : 0
+    );
 
     const [selectedSize, setSelectedSize] =
         useState("Size A - Small");
@@ -35,6 +50,24 @@ export default function ProductOptions({
         "Size B - Medium",
         "Size C - Large",
     ];
+
+    const handleColorChange = (index: number) => {
+
+        setSelectedColor(index);
+
+        const params = new URLSearchParams(
+            searchParams.toString()
+        );
+
+        params.set("color", String(index));
+
+        router.replace(
+            `?${params.toString()}`,
+            {
+                scroll: false,
+            }
+        );
+    };
 
     return (
         <div className="product-options">
@@ -63,7 +96,7 @@ export default function ProductOptions({
                                 backgroundColor: color.color,
                             }}
                             onClick={() =>
-                                setSelectedColor(index)
+                                handleColorChange(index)
                             }
                             aria-label={color.name}
                             title={color.name}
@@ -89,9 +122,9 @@ export default function ProductOptions({
                         </strong>
                     </p>
 
-                    <a href={`/size-guide/${productId}`}>
+                    <Link href={`/size-guide/${productId}`}>
                         Find Your Size
-                    </a>
+                    </Link>
 
                 </div>
 
