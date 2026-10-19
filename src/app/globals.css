@@ -4,6 +4,10 @@
 
 @source inline("flex w-full flex-col md:flex-row relative flex-1 overflow-hidden absolute inset-0 bg-cover bg-center bg-no-repeat sr-only z-10 h-full justify-end px-8 pb-10 pt-[420px] md:pt-[520px] text-3xl md:text-4xl font-black tracking-wide text-white mt-2 text-sm leading-relaxed text-white/90 mt-5 border border-white px-6 py-2.5 font-semibold transition-colors hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white");
 
+
+@source inline("mx-auto max-w-7xl w-full px-6 py-12 md:px-12 lg:px-16 mt-6 mt-10 mt-4 mt-1 flex flex-wrap gap-6 gap-1 border-b pb-3 text-sm text-base font-medium font-bold tracking-tight md:text-3xl relative bottom-0 left-0 h-0.5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 rounded-lg flex-col leading-relaxed object-cover object-top transition-colors");
+
+
 :root {
   --background: #f7f6f2;
   --foreground: #171717;
