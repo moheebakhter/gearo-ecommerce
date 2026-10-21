@@ -144,33 +144,28 @@ return (
   <main className="shop-page">
 
     {/* BILDIT: Content before Shop Hero */}
-    <SlotPlaceholder slotId="shop-top" />
-
-    {/* SHOP HERO */}
+ <SlotPlaceholder
+  slotId="shop-hero"
+  fallback={
     <section
       className="shop-hero"
-      style={{
-        backgroundImage: "url('/Images/Shop_banner.png')",
-      }}
+      style={{ backgroundImage: "url('/Images/Shop_banner.png')" }}
     >
       <div className="shop-hero-inner">
-        <p className="shop-eyebrow">
-          OUR COLLECTION
-        </p>
-
+        <p className="shop-eyebrow">OUR COLLECTION</p>
         <h1>
           Shop furniture
           <br />
           for your space.
         </h1>
-
         <p className="shop-intro">
           Discover carefully selected furniture and office equipment
           designed for modern living and working spaces.
         </p>
       </div>
     </section>
-
+  }
+/>
     {/* BILDIT: Between Hero and Products */}
     <SlotPlaceholder slotId="shop-after-hero" />
 
