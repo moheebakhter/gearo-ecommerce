@@ -7,4 +7,4 @@ export default function NewArrivalsPage() {
       <SlotPlaceholder slotId="new-arrivals-main" />
     </main>
   );
-}
+} 

@@ -1,12 +1,13 @@
+
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { getPreviewDateFromHeaders } from "@bildit-platform/nextjs";
 import { RemoteConnector } from "@bildit-platform/nextjs-api";
+import { NextBILDITAIPixel } from "@bildit-platform/ai-pixel/nextjs";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import Providers from "@/Components/Providers";
-
 
 export const dynamic = "force-dynamic";
 
@@ -20,14 +21,17 @@ async function getInitialData() {
   if (!process.env.BILDIT_API_KEY || !process.env.BILDIT_API_URL) {
     return [];
   }
+
   try {
     const headersList = await headers();
     const pathname = headersList.get("x-pathname") || "/";
     const previewDate = getPreviewDateFromHeaders(headersList);
+
     const connector = new RemoteConnector({
       key: process.env.BILDIT_API_KEY,
       baseURL: process.env.BILDIT_API_URL,
     });
+
     const result = await connector.getWebBanners({
       location: pathname,
       date: previewDate,
@@ -35,6 +39,7 @@ async function getInitialData() {
       tomorrow: true,
       source: "live",
     });
+
     return result.data || [];
   } catch (error) {
     console.error("[BILDIT] Failed to load scheduled content:", error);
@@ -52,6 +57,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
+        <NextBILDITAIPixel />
+
         <Providers banners={banners}>
           <Navbar />
           {children}
