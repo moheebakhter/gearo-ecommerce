@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { getPreviewDateFromHeaders } from "@bildit-platform/nextjs";
 import { RemoteConnector } from "@bildit-platform/nextjs-api";
-import { NextBILDITAIPixel } from "@bildit-platform/ai-pixel/nextjs";
+import BilditPixelClient from "@/Components/BilditPixelClient";
+
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
@@ -42,7 +43,11 @@ async function getInitialData() {
 
     return result.data || [];
   } catch (error) {
-    console.error("[BILDIT] Failed to load scheduled content:", error);
+    console.error(
+      "[BILDIT] Failed to load scheduled content:",
+      error
+    );
+
     return [];
   }
 }
@@ -57,9 +62,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextBILDITAIPixel />
-
         <Providers banners={banners}>
+          <BilditPixelClient />
           <Navbar />
           {children}
           <Footer />
