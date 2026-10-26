@@ -19,5 +19,5 @@ export default function BilditPixelClient() {
     return null;
   }
 
-  return createElement(PixelComponent);
+  return createElement(PixelComponent, { appId: process.env.NEXT_PUBLIC_BILDIT_APP_ID });
 }
