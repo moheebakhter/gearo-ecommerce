@@ -41,6 +41,7 @@ async function getInitialData() {
       source: "live",
     });
 
+        console.log("[BILDIT] pathname:", pathname, "count:", result.data?.length, JSON.stringify(result.data, null, 2));
     return result.data || [];
   } catch (error) {
     console.error(
