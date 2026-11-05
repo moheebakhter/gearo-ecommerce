@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { getPreviewDateFromHeaders } from "@bildit-platform/nextjs";
 import { RemoteConnector } from "@bildit-platform/nextjs-api";
-import BilditPixelClient from "@/Components/BilditPixelClient";
+import { NextBILDITAIPixel } from "@bildit-platform/ai-pixel/nextjs";
 
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
@@ -41,7 +41,14 @@ async function getInitialData() {
       source: "live",
     });
 
-        console.log("[BILDIT] pathname:", pathname, "count:", result.data?.length, JSON.stringify(result.data, null, 2));
+    console.log(
+      "[BILDIT] pathname:",
+      pathname,
+      "count:",
+      result.data?.length,
+      JSON.stringify(result.data, null, 2)
+    );
+
     return result.data || [];
   } catch (error) {
     console.error(
@@ -64,7 +71,9 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <Providers banners={banners}>
-          <BilditPixelClient />
+          <NextBILDITAIPixel
+            params={{ site: "bildit_globaltechsolu" }}
+          />
           <Navbar />
           {children}
           <Footer />

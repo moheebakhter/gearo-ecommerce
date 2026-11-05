@@ -1,10 +1,22 @@
 import { enhanceMiddlewareWithBildit } from "@bildit-platform/nextjs";
+import {
+  trackAIBotRequestForPixel,
+} from "@bildit-platform/ai-pixel/nextjs";
+
 import { NextRequest, NextResponse } from "next/server";
 
 async function customMiddleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
+
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
-  return NextResponse.next({ request: { headers: requestHeaders } });
+
+  await trackAIBotRequestForPixel(request, {
+    params: { edge: "middleware" },
+  });
+
+  return NextResponse.next({
+    request: { headers: requestHeaders },
+  });
 }
 
 export const proxy = enhanceMiddlewareWithBildit(customMiddleware);
