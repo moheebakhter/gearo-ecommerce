@@ -72,7 +72,7 @@ export default async function RootLayout({
       <body>
         <Providers banners={banners}>
           <NextBILDITAIPixel
-            params={{ site: "bildit_globaltechsolu" }}
+            params={{ site: "bildit-globaltechsolu" }}
           />
           <Navbar />
           {children}
