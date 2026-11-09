@@ -1,7 +1,6 @@
+
 import { enhanceMiddlewareWithBildit } from "@bildit-platform/nextjs";
-import {
-  trackAIBotRequestForPixel,
-} from "@bildit-platform/ai-pixel/nextjs";
+import { trackAIBotRequestForPixel } from "@bildit-platform/ai-pixel/nextjs";
 
 import { NextRequest, NextResponse } from "next/server";
 
