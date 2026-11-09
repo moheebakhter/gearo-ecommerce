@@ -5,7 +5,7 @@ import {
 
 import { NextRequest, NextResponse } from "next/server";
 
-async function customMiddleware(request: NextRequest) {
+export async function customMiddleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
 
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
