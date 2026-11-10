@@ -1,12 +1,9 @@
-
-import { enhanceMiddlewareWithBildit } from "@bildit-platform/nextjs";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import { trackAIBotRequestForPixel } from "@bildit-platform/ai-pixel/nextjs";
 
-import { NextRequest, NextResponse } from "next/server";
-
-export async function customMiddleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
-
   requestHeaders.set("x-pathname", request.nextUrl.pathname);
 
   await trackAIBotRequestForPixel(request, {
@@ -17,8 +14,6 @@ export async function customMiddleware(request: NextRequest) {
     request: { headers: requestHeaders },
   });
 }
-
-export const proxy = enhanceMiddlewareWithBildit(customMiddleware);
 
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],

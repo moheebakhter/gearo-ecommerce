@@ -1,9 +1,8 @@
-
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { getPreviewDateFromHeaders } from "@bildit-platform/nextjs";
 import { RemoteConnector } from "@bildit-platform/nextjs-api";
-import { NextBILDITAIPixel } from "@bildit-platform/ai-pixel/nextjs";
+import { BILDITAIPixel } from "@bildit-platform/ai-pixel/react";
 
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
@@ -41,21 +40,19 @@ async function getInitialData() {
       source: "live",
     });
 
-    console.log(
-      "[BILDIT] pathname:",
-      pathname,
-      "count:",
-      result.data?.length,
-      JSON.stringify(result.data, null, 2)
-    );
+    if (!result?.data || !Array.isArray(result.data)) {
+      return [];
+    }
 
-    return result.data || [];
+    // Safety filter to prevent crashing on invalid/undefined variants or compiled code
+    return result.data.map(banner => ({
+      ...banner,
+      variants: Array.isArray(banner?.variants) 
+        ? banner.variants.filter(v => v?.code) 
+        : []
+    }));
   } catch (error) {
-    console.error(
-      "[BILDIT] Failed to load scheduled content:",
-      error
-    );
-
+    console.error("[BILDIT] Failed to load scheduled content:", error);
     return [];
   }
 }
@@ -71,7 +68,8 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <Providers banners={banners}>
-          <NextBILDITAIPixel
+                    <BILDITAIPixel
+            mode="server"
             params={{ site: 'bildit-globaltechsolu' }}
           />
           <Navbar />
